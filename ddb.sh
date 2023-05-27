@@ -9,12 +9,12 @@ fi
 # Pobranie argumentu
 threads=$1
 
-# Funkcja tworząca pliki o rozmiarze 1 GB
+# Funkcja tworząca pliki o rozmiarze 100MB
 create_files() {
   local thread_id=$1
   while true; do
-    # Tworzenie pliku o rozmiarze 1 GB
-    dd if=/dev/zero of="file_$thread_id" bs=1G count=1 >/dev/null 2>&1
+    # Tworzenie pliku o rozmiarze 100MB
+    dd if=/dev/urandom of="file_$thread_id" bs=100M count=1 >/dev/null 2>&1
   done
 }
 
